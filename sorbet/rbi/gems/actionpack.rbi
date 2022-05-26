@@ -1601,39 +1601,3 @@ module ActionController::TestCase::Behavior
 end
 module ActionController::TestCase::Behavior::ClassMethods
 end
-class ActionDispatch::RequestEncoder
-end
-class ActionDispatch::RequestEncoder::IdentityEncoder
-end
-module ActionDispatch::Integration
-end
-module ActionDispatch::Integration::RequestHelpers
-end
-class ActionDispatch::Integration::Session
-  include ActionDispatch::Routing::UrlFor
-  include ActionDispatch::TestProcess
-  include Minitest::Assertions
-end
-module ActionDispatch::Integration::Runner
-  include ActionDispatch::Assertions
-end
-class ActionDispatch::IntegrationTest < ActiveSupport::TestCase
-  extend ActionDispatch::IntegrationTest::Behavior::ClassMethods
-  include ActionDispatch::IntegrationTest::Behavior
-  include ActionDispatch::IntegrationTest::UrlOptions
-  include ActionDispatch::Routing::UrlFor
-  include ActionDispatch::TestProcess::FixtureFile
-  include ActionMailer::TestCase::ClearTestDeliveries
-  include ActionMailer::TestHelper
-  include ActiveJob::TestHelper
-end
-module ActionDispatch::IntegrationTest::UrlOptions
-  extend ActiveSupport::Concern
-end
-module ActionDispatch::IntegrationTest::Behavior
-  extend ActiveSupport::Concern
-  include ActionController::TemplateAssertions
-  include ActionDispatch::Integration::Runner
-end
-module ActionDispatch::IntegrationTest::Behavior::ClassMethods
-end

@@ -450,6 +450,8 @@ class Rails::Application::Finisher::MutexHook
 end
 module Rails::Application::Finisher::InterlockHook
 end
+class Rails::BacktraceCleaner < ActiveSupport::BacktraceCleaner
+end
 class Rails::Application::RoutesReloader
   extend ActiveSupport::Callbacks::ClassMethods
   extend ActiveSupport::DescendantsTracker
@@ -458,39 +460,4 @@ end
 class Rails::Application::DefaultMiddlewareStack
 end
 class Rails::Rack::Logger < ActiveSupport::LogSubscriber
-end
-class Rails::BacktraceCleaner < ActiveSupport::BacktraceCleaner
-end
-module Rails::Command
-  extend ActiveSupport::Autoload
-  extend Rails::Command::Behavior::ClassMethods
-  include Rails::Command::Behavior
-end
-module Rails::Command::Behavior
-  extend ActiveSupport::Concern
-end
-module Rails::Command::Behavior::ClassMethods
-end
-module Rails::Generators
-  extend Rails::Command::Behavior::ClassMethods
-  include Rails::Command::Behavior
-end
-module Rails::Generators::Testing
-end
-module Rails::Generators::Testing::Behaviour
-  extend ActiveSupport::Concern
-  include ActiveSupport::Testing::Stream
-end
-module Rails::Generators::Testing::Behaviour::ClassMethods
-end
-module Rails::Generators::Testing::SetupAndTeardown
-end
-module Rails::Generators::Testing::Assertions
-end
-class Rails::Generators::TestCase < ActiveSupport::TestCase
-  extend Rails::Generators::Testing::Behaviour::ClassMethods
-  include FileUtils
-  include Rails::Generators::Testing::Assertions
-  include Rails::Generators::Testing::Behaviour
-  include Rails::Generators::Testing::SetupAndTeardown
 end

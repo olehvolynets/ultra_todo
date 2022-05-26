@@ -73,3 +73,7 @@ class RSpec::Support::ObjectFormatter::InspectableObjectInspector < RSpec::Suppo
 end
 module RSpec::Support::FuzzyMatcher
 end
+class RSpec::Support::HunkGenerator
+end
+class RSpec::Support::Differ
+end

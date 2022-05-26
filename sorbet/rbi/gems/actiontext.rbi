@@ -25,6 +25,13 @@ module ActionText::Attachments
 end
 class ActionText::Engine < Rails::Engine
 end
+module ActionText::Attribute
+  extend ActiveSupport::Concern
+end
+module ActionText::Attribute::ClassMethods
+end
+module ActionText::Encryption
+end
 module ActionText::Attachments::TrixConversion
   extend ActiveSupport::Concern
 end
@@ -54,13 +61,6 @@ end
 module ActionView::Helpers::FormHelper
 end
 class ActionView::Helpers::FormBuilder
-end
-module ActionText::Attribute
-  extend ActiveSupport::Concern
-end
-module ActionText::Attribute::ClassMethods
-end
-module ActionText::Encryption
 end
 module ActionText::Attachable
   extend ActiveSupport::Concern

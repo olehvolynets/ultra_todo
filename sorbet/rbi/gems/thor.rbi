@@ -101,5 +101,3 @@ class Thor::Group
   include Thor::Invocation
   include Thor::Shell
 end
-class Thor::Shell::Basic
-end

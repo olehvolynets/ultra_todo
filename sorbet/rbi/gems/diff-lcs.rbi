@@ -28,3 +28,7 @@ module Diff::LCS::Internals
 end
 module Diff
 end
+class Diff::LCS::Block
+end
+class Diff::LCS::Hunk
+end
