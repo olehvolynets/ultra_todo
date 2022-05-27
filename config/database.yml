@@ -1,25 +1,26 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV['ULTRA_TODO_DB_USER'] %>
-  password: <%= ENV.fetch("ULTRA_TODO_DB_PASSWORD") { 'postgres' } %>
-  #host: localhost
-  #port: 5432
+  username: <%= ENV['ULTRA_TODO_DB_USER'] { 'postgres' } %>
+  password: <%= ENV.fetch('ULTRA_TODO_DB_PASSWORD') { 'postgres' } %>
+  host: <%= ENV.fetch('ULTRA_TODO_DB_HOST') { 'localhost' } %>
+  port: <%= ENV.fetch('ULTRA_TODO_DB_PORT') { 5432 }%>
   # Minimum log levels, in increasing order:
   #   debug5, debug4, debug3, debug2, debug1,
   #   log, notice, warning, error, fatal, and panic
   # Defaults to warning.
   #min_messages: notice
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  database: <%= ENV.fetch('ULTRA_TODO_DB_NAME') { 'ultra_todo' } %>
 
 development:
   <<: *default
-  database: ultra_todo_development
+  database: <%= ENV.fetch('ULTRA_TODO_DB_NAME') { 'ultra_todo' } %>_development
 
 test:
   <<: *default
-  database: ultra_todo_test
+  database: <%= ENV.fetch('ULTRA_TODO_DB_NAME') { 'ultra_todo' } %>_test
 
 production:
   <<: *default
-  database: ultra_todo_production
+  database: <%= ENV.fetch('ULTRA_TODO_DB_NAME') { 'ultra_todo' } %>_production
